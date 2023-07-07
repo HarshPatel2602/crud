@@ -57,7 +57,7 @@ const EmpEdit = () => {
       <div className='row'>
         <div className='offset-lg-3 col-lg-6'>
           <form className='container' onSubmit={handlesubmit}>
-            <div className='card'>
+            <div className='card' style={{textAlign: 'left'}}>
               <div className='card-title'>
                 <h2 className='text-center'>Employ Edit</h2>
               </div>

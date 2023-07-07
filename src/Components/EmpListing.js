@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./EmpListing.css"
 
 const EmpListing = () => {
@@ -13,7 +13,7 @@ const EmpListing = () => {
         navigate('/crud/edit/' + id)
     }
 
-    function getAllData(){
+    function getAllData() {
         fetch("http://192.168.0.48:9000/books").then((res) => {
             return res.json();
         }).then((resp) => {
@@ -22,13 +22,13 @@ const EmpListing = () => {
             console.log(err.message);
         })
     }
-    
-    const Removefunction = (id) => {    
+
+    const Removefunction = (id) => {
         if (window.confirm('Do you want to remove?')) {
             fetch("http://192.168.0.48:9000/deleteBook", {
                 method: 'DELETE',
                 headers: { "content-type": "application/json" },
-                body: JSON.stringify({id}),
+                body: JSON.stringify({ id }),
             }).then((res) => {
                 alert('Removed successfully.')
                 getAllData()
@@ -70,9 +70,18 @@ const EmpListing = () => {
                                         <td className='text-center'>{item.description}</td>
                                         <td className='text-center'>{item.cover}</td>
                                         <td className='text-center'>
-                                            <a onClick={() => { LoadDetail(item.id) }} className='btn btn-primary'>Show</a>
-                                            <a onClick={() => { LoadEdit(item.id) }} className='btn btn-warning'>Edit</a>
-                                            <a onClick={() => { Removefunction(item.id) }} className='btn btn-danger'>Delete</a>
+                                            <a onClick={() => { LoadDetail(item.id) }} > <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>Show</a>
+                                            <a onClick={() => { LoadEdit(item.id) }} > <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>Edit</a>
+                                            <a onClick={() => { Removefunction(item.id) }} > <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>Delete</a>
                                         </td>
                                     </tr>
                                 ))
